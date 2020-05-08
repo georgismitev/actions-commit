@@ -23,7 +23,7 @@ jobs:
       run: docker build -t deepcode_action:${GITHUB_SHA} --build-arg DEEPCODE_TOKEN=${DC_TOKEN} .
 
     - name: Run the DeepCode analysis
-      run: docker run -t --privileged=false --cap-drop=ALL --user=docker --rm=true -v ${GITHUB_WORKSPACE}:/src:ro -v "${GITHUB_WORKSPACE}/results":/results deepcode_action:${GITHUB_SHA}
+      run: docker run -t --privileged=false --cap-drop=ALL --user=docker --rm=true -v ${GITHUB_WORKSPACE}:/src:ro -v "${GITHUB_WORKSPACE}/results":/results:rw deepcode_action:${GITHUB_SHA}
     
     - name: Show the analysis result
       run: cat results/output.json
