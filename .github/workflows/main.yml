@@ -14,10 +14,7 @@ jobs:
     - name: Show github workspace
       run: echo ${GITHUB_WORKSPACE}
 
-    - name: Prepare environment
-      uses: ./
+    - name: Build and tag DeepCode docker image with cli
       env:
         DC_TOKEN: ${{ secrets.DC_TOKEN }}
-
-    - name: Build and tag DeepCode docker image with cli
-      run: docker build . --file Dockerfile -t deepcode_action --build-arg DEEPCODE_TOKEN=${DC_TOKEN} .
+      run: docker build -t deepcode_action:${GITHUB_SHA} --build-arg DEEPCODE_TOKEN=${DC_TOKEN} .
