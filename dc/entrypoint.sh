@@ -2,27 +2,15 @@
 
 # PARAMETERS
 FILES_DIR="/src"
-RESULTS_DIR="/results"
 
 CONFIG_FILE="/dc/config.json"
-OUTPUT_FILE="/results/output.json"
+OUTPUT_FILE="/src/results/output.json"
 ANALYSIS_DIR="/dc/src"
 
 if ! [ -d "$FILES_DIR" ]
 then
   echo "$FILES_DIR directory not found."
   exit 1
-fi
-
-if ! [ -d "$RESULTS_DIR" ]
-then
-  echo "$RESULTS_DIR directory not found."
-  mkdir -p $RESULTS_DIR
-  if ! [ -d "$RESULTS_DIR" ]
-  then
-    echo "$RESULTS_DIR directory not found."
-    exit 1
-  fi
 fi
 
 DEBUG=$(printenv DEBUG)
