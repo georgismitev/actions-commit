@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 # PARAMETERS
-
-CODACY_RC="/.codacyrc"
 FILES_DIR="/src"
 
 CONFIG_FILE="/dc/config.json"
@@ -31,12 +29,6 @@ echo "External environment variables: DEBUG=$DEBUG TIMEOUT=$TIMEOUT" >&3
 echo "DeepCode config file: "$(cat $CONFIG_FILE) >&3
 
 # SUPPORT FUNCTIONS
-
-function load_config_file {
-  # Patterns are not configurable due to lack of global documentation
-  codacy_patterns="";
-}
-
 function load_src_files {
   codacy_files=$(cd $FILES_DIR || exit; find . -type f -exec echo {} \; | cut -c3-)
 }
@@ -61,38 +53,7 @@ function report_error {
 }
 
 # MAIN EXECUTION
-
-if [ -f /.codacyrc ]; then
-  echo "Found .codacyrc file, parsing..." >&3
-
-  #parse
-  codacyrc_file=$(jq -erM '.' < $CODACY_RC)
-
-  # error on invalid json
-  if [ $? -ne 0 ]; then
-    echo "Can't parse .codacyrc file"
-    exit 1
-  fi
-
-  codacy_files=$(jq -cer '.files | .[]' <<< "$codacyrc_file")
-  codacy_patterns=$(jq -cer '.tools | .[] | select(.name=="DeepCode") | .patterns | .[].patternId' <<< "$codacyrc_file")
-
-  # When no patterns are supplied
-  if [ "$codacy_patterns" == "" ]; then
-    echo "Found no patterns in the .codacyrc file, using default configuration." >&3
-    load_config_file
-  fi
-
-  # When no files are supplied, run with all files in /src
-  if [ "$codacy_files" == "" ]; then
-    echo "Found no files in the .codacyrc file, using default configuration." >&3
-    load_src_files
-  fi
-else
-  echo "Found no .codacyrc file, using default configuration." >&3
-  load_config_file
-  load_src_files
-fi
+load_src_files
 
 # Create symlinks for requested files into the analysis dir
 # Directly passing the path of the files as arguments for the analysis would be
