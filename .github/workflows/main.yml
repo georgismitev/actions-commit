@@ -18,3 +18,6 @@ jobs:
       env:
         DC_TOKEN: ${{ secrets.DC_TOKEN }}
       run: docker build -t deepcode_action:${GITHUB_SHA} --build-arg DEEPCODE_TOKEN=${DC_TOKEN} .
+
+    - name: Run the DeepCode analysis
+      run: docker run -t --privileged=false --cap-drop=ALL --user=docker --rm=true -v ${GITHUB_WORKSPACE}:/src:ro deepcode_action:${GITHUB_SHA}
