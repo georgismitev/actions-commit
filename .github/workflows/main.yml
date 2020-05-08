@@ -1,13 +1,20 @@
 name: DeepCode analysis
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Build DeepCode actions docker image
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Prepare environment
+      uses: ./
       env:
         DC_TOKEN: ${{ secrets.DC_TOKEN }}
-      run: docker build -t deepcode_action --build-arg DEEPCODE_TOKEN=${DC_TOKEN} .
+
+    - name: Build and tag DeepCode docker image with cli
+      run: docker build . --file Dockerfile -t deepcode_action --build-arg DEEPCODE_TOKEN=${DC_TOKEN} .
