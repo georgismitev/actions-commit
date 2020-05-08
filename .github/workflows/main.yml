@@ -20,4 +20,4 @@ jobs:
       run: docker run -t --privileged=false --cap-drop=ALL --user=docker --rm=true -v ${GITHUB_WORKSPACE}:/src:ro deepcode_action:${GITHUB_SHA}
     
     - name: Show the analysis result
-      run: docker cp deepcode_action:${GITHUB_SHA}:/dc/output.json . && cat output.json
+      run: docker cp "deepcode_action:${GITHUB_SHA}":/dc/output.json . && cat output.json
