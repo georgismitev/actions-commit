@@ -4,7 +4,7 @@
 FILES_DIR="/src"
 
 CONFIG_FILE="/dc/config.json"
-OUTPUT_FILE="/src/results/output.json"
+OUTPUT_FILE="/dc/output.json"
 ANALYSIS_DIR="/dc/src"
 
 if ! [ -d "$FILES_DIR" ]
