@@ -138,17 +138,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-escaped_dir=$(echo $ANALYSIS_DIR | sed 's/\//\\\//g')
-while read -r file_path; do
-  filename=$(echo $file_path | sed "s/^$escaped_dir\///")
-  s_indexes=$(jq -cer ".results.files[\"$file_path\"] | keys_unsorted[]" <<< "$output")
-  while read -r sidx; do
-    s_lines=$(jq -cer ".results.files[\"$file_path\"][\"$sidx\"] | .[].rows[0]" <<< "$output")
-    while read -r line; do
-      echo "{\"filename\":\"$filename\",\"line\":$line,${RULEMAP[$sidx]}}"
-    done <<< "$s_lines"
-  done <<< "$s_indexes"
-done <<< "$file_indexes"
+cat $OUTPUT_FILE
 
 echo "Success." >&3
 exit 0
