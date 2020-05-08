@@ -10,6 +10,9 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v2
+    
+    - name: Show github workspace
+      run: echo ${GITHUB_WORKSPACE}
 
     - name: Prepare environment
       uses: ./
