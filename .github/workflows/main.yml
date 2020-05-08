@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Prepare results directory
-      uses: cd ${GITHUB_WORKSPACE} && mkdir results
+      run: cd ${GITHUB_WORKSPACE} && mkdir results
 
     - name: Build and tag DeepCode docker image with cli
       env:
