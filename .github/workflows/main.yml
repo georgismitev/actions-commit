@@ -5,10 +5,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v1
-    - uses: ./
-      name: Build DeepCode actions docker image
+    - name: Build DeepCode actions docker image
       env:
         DC_TOKEN: ${{ secrets.DC_TOKEN }}
       run: docker build -t deepcode_action --build-arg DEEPCODE_TOKEN=${DC_TOKEN} .
