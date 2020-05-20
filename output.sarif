@@ -73,10 +73,7 @@
                 }
               }
             }
-          ],
-          "partialFingerprints": {
-            "primaryLocationLineHash": "ba28fbbb7f79faed092f3abc696e6bcbe2405d07:warning.js:51:0"
-          }
+          ]
         },
         {
           "ruleId": "javascript%2Fdc%2FWrongOperatorPriorityNegationInstanceOf",
@@ -99,10 +96,7 @@
                 }
               }
             }
-          ],
-          "partialFingerprints": {
-            "primaryLocationLineHash": "ba28fbbb7f79faed092f3abc696e6bcbe2405d07:critical.js:164:0"
-          }
+          ]
         }
       ]
     }
