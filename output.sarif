@@ -1,0 +1,104 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "DeepCode",
+          "rules": [
+            {
+              "id": "javascript%2Fdc%2FUseStrictEquality",
+              "name": "UseStrictEquality",
+              "shortDescription": {
+                "text": "Use === instead of == to compare to the value."
+              },
+              "fullDescription": {
+                "text": "Use === instead of == to compare to the value."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "API",
+                  "JavaScript",
+                  "Info"
+                ],
+                "precision": "very-high"
+              }
+            },
+            {
+              "id": "javascript%2Fdc%2FWrongOperatorPriorityNegationInstanceOf",
+              "name": "WrongOperatorPriorityNegationInstanceOf",
+              "shortDescription": {
+                "text": "Negation applied before instanceof."
+              },
+              "fullDescription": {
+                "text": "Negation applied before instanceof. Check operator priorities - negation has higher priority than instanceof."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "Defect",
+                  "JavaScript"
+                ],
+                "precision": "very-high"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "javascript%2Fdc%2FUseStrictEquality",
+          "level": "note",
+          "message": {
+            "text": "Use === instead of == to compare to the value."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "warning.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 51,
+                  "endLine": 51,
+                  "startColumn": 7,
+                  "endColumn": 32
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "javascript%2Fdc%2FWrongOperatorPriorityNegationInstanceOf",
+          "level": "error",
+          "message": {
+            "text": "Negation applied before instanceof. Check operator priorities - negation has higher priority than instanceof."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "critical.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 164,
+                  "endLine": 164,
+                  "startColumn": 8,
+                  "endColumn": 32
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
