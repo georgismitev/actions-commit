@@ -47,6 +47,26 @@
                 ],
                 "precision": "very-high"
               }
+            },
+            {
+              "id": "python%2Fdc%2FSqli",
+              "name": "Sqli",
+              "shortDescription": {
+                "text": "Unsanitized user input leads to SQL injection vulnerability."
+              },
+              "fullDescription": {
+                "text": "Unsanitized input flows from the database and is used in an SQL query in execute. This may result in an SQL Injection vulnerability."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "Security",
+                  "Python"
+                ],
+                "precision": "very-high"
+              }
             }
           ]
         }
@@ -95,6 +115,100 @@
                   "endColumn": 32
                 }
               }
+            }
+          ]
+        },
+        {
+          "ruleId": "python%2Fdc%2FSqli",
+          "level": "error",
+          "message": {
+            "text": "Unsanitized input flows from the database and is used in an SQL query in execute. This may result in an SQL Injection vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "postgresql-critical.py",
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 234,
+                  "endLine": 234,
+                  "startColumn": 5,
+                  "endColumn": 18
+                }
+              }
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "region": {
+                            "startLine": 282,
+                            "endLine": 282,
+                            "startColumn": 11,
+                            "endColumn": 25
+                          },
+                          "artifactLocation": {
+                            "uri": "postgresql-critical.py",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 0
+                          }
+                        },
+                        "message": {
+                          "text": "Rule has index 0."
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "region": {
+                            "startLine": 231,
+                            "endLine": 231,
+                            "startColumn": 18,
+                            "endColumn": 61
+                          },
+                          "artifactLocation": {
+                            "uri": "postgresql-critical.py",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 1
+                          }
+                        },
+                        "message": {
+                          "text": "Rule has index 1."
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "postgresql-critical.py",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 234,
+                            "endLine": 234,
+                            "startColumn": 5,
+                            "endColumn": 18
+                          }
+                        },
+                        "message": {
+                          "text": "Unsanitized input flows from the database and is used in an SQL query in execute. This may result in an SQL Injection vulnerability."
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
