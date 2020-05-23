@@ -47,6 +47,26 @@
                 ],
                 "precision": "very-high"
               }
+            },
+            {
+              "id": "python%2Fdc%2FSqli",
+              "name": "Sqli",
+              "shortDescription": {
+                "text": "Unsanitized user input leads to SQL injection vulnerability."
+              },
+              "fullDescription": {
+                "text": "Unsanitized input flows from the database and is used in an SQL query in execute. This may result in an SQL Injection vulnerability."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "Security",
+                  "Python"
+                ],
+                "precision": "very-high"
+              }
             }
           ]
         }
@@ -93,6 +113,29 @@
                   "endLine": 164,
                   "startColumn": 8,
                   "endColumn": 32
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "python%2Fdc%2FSqli",
+          "level": "error",
+          "message": {
+            "text": "Unsanitized input flows from the database and is used in an SQL query in execute. This may result in an SQL Injection vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "postgresql-critical.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 234,
+                  "endLine": 234,
+                  "startColumn": 5,
+                  "endColumn": 18
                 }
               }
             }
