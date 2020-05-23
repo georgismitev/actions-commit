@@ -43,7 +43,6 @@
                 "artifactLocation": {
                   "uri": "postgresql-critical.py",
                   "uriBaseId": "%SRCROOT%",
-                  "index": 2
                 },
                 "region": {
                   "startLine": 234,
@@ -72,10 +71,10 @@
                             "uri": "postgresql-critical.py",
                             "uriBaseId": "%SRCROOT%",
                             "index": 0
+                          },
+                          "message": {
+                            "text": "This is where the error starts."
                           }
-                        },
-                        "message": {
-                          "text": "Rule has index 0."
                         }
                       }
                     },
@@ -92,10 +91,30 @@
                             "uri": "postgresql-critical.py",
                             "uriBaseId": "%SRCROOT%",
                             "index": 1
+                          },
+                          "message": {
+                            "text": "2nd step in building the query."
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "postgresql-critical.py",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          },
+                          "region": {
+                            "startLine": 234,
+                            "endLine": 234,
+                            "startColumn": 5,
+                            "endColumn": 18
                           }
                         },
                         "message": {
-                          "text": "Rule has index 1."
+                          "text": "Unsanitized input flows from the database and is used in an SQL query in execute. This may result in an SQL Injection vulnerability."
                         }
                       }
                     }
