@@ -129,7 +129,8 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "postgresql-critical.py",
-                  "uriBaseId": "%SRCROOT%"
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
                 },
                 "region": {
                   "startLine": 234,
@@ -140,42 +141,56 @@
               }
             }
           ],
-          "relatedLocations": [
+          "codeFlows": [
             {
-              "id": 1,
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "postgresql-critical.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 81,
-                  "startColumn": 10,
-                  "endColumn": 18
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "region": {
+                            "startLine": 282,
+                            "endLine": 282,
+                            "startColumn": 11,
+                            "endColumn": 25
+                          },
+                          "artifactLocation": {
+                            "uri": "postgresql-critical.py",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 1
+                          }
+                        },
+                        "message": {
+                          "text": "Rule has index 0"
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "region": {
+                            "startLine": 231,
+                            "endLine": 231,
+                            "startColumn": 18,
+                            "endColumn": 61
+                          },
+                          "artifactLocation": {
+                            "uri": "postgresql-critical.py",
+                            "uriBaseId": "%SRCROOT%",
+                            "index": 2
+                          }
+                        },
+                        "message": {
+                          "text": "Rule has index 1"
+                        }
+                      }
+                    }
+                  ]
                 }
-              },
-              "message": {
-                "text": "here 1"
-              }
-            },
-            {
-              "id": 2,
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "postgresql-critical.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 82,
-                  "startColumn": 10,
-                  "endColumn": 21
-                }
-              },
-              "message": {
-                "text": "here 2"
-              }
+              ]
             }
-          ]
+          ],
         }
       ]
     }
