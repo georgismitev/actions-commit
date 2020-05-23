@@ -158,11 +158,11 @@
                           "artifactLocation": {
                             "uri": "postgresql-critical.py",
                             "uriBaseId": "%SRCROOT%",
-                            "index": 1
+                            "index": 0
                           }
                         },
                         "message": {
-                          "text": "Rule has index 0"
+                          "text": "Rule has index 0."
                         }
                       }
                     },
@@ -178,11 +178,26 @@
                           "artifactLocation": {
                             "uri": "postgresql-critical.py",
                             "uriBaseId": "%SRCROOT%",
-                            "index": 2
+                            "index": 1
                           }
                         },
                         "message": {
-                          "text": "Rule has index 1"
+                          "text": "Rule has index 1."
+                        }
+                      }
+                    },
+                    {
+                      "physicalLocation": {
+                        "artifactLocation": {
+                          "uri": "postgresql-critical.py",
+                          "uriBaseId": "%SRCROOT%",
+                          "index": 2
+                        },
+                        "region": {
+                          "startLine": 234,
+                          "endLine": 234,
+                          "startColumn": 5,
+                          "endColumn": 18
                         }
                       }
                     }
@@ -190,7 +205,7 @@
                 }
               ]
             }
-          ],
+          ]
         }
       ]
     }
