@@ -42,7 +42,8 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "postgresql-critical.py",
-                  "uriBaseId": "%SRCROOT%"
+                  "uriBaseId": "%SRCROOT%",
+                  "index": 2
                 },
                 "region": {
                   "startLine": 234,
