@@ -119,9 +119,6 @@ class DeepCodeToSarif:
 
     return sarif_output
 
-  def convert_to_sarif_json(self):
-    return json.dumps(self.convert_to_sarif())
-
   def __init__(self, deepcode_json):
     self.suggestions = dict()
     self.deepcode_json = deepcode_json
@@ -131,3 +128,13 @@ class DeepCodeToSarif:
         if issue_id not in self.suggestions:
           self.suggestions[issue_id] = self.deepcode_json["results"]["files"][file][issue_id][0]
           self.suggestions[issue_id]["file"] = file[1:]
+
+if __name__ == "__main__":
+    deepcode_json_file = sys.argv[1]
+    dc_input = None
+
+    with open(deepcode_json_file) as input_json:
+      dc_input = json.load(input_json)
+
+    with open('output.sarif', 'w') as outfile:
+      json.dump(DeepCodeToSarif(dc_input).convert_to_sarif(), outfile)
