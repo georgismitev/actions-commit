@@ -137,5 +137,5 @@ if __name__ == "__main__":
     with open(deepcode_json_file) as input_json:
       dc_input = json.load(input_json)
 
-    with open('output.sarif', 'w') as outfile:
+    with open('output1.sarif', 'w') as outfile:
       json.dump(DeepCodeToSarif(dc_input).convert_to_sarif(), outfile)
