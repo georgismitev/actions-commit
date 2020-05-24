@@ -12,22 +12,10 @@ jobs:
       uses: actions/checkout@v2
 
     - name: GITHUB_WORKSPACE value
-      run: echo ${GITHUB_WORKSPACE}
+      run: which python
 
     - name: Prepare results directory
-      run: cd ${GITHUB_WORKSPACE} && mkdir results && ls -l
-
-    - name: Build and tag DeepCode docker image with cli
-      env:
-        DC_TOKEN: ${{ secrets.DC_TOKEN }}
-      run: docker build -t deepcode_action:${GITHUB_SHA} --build-arg DEEPCODE_TOKEN=${DC_TOKEN} .
-
-    - name: Run the DeepCode analysis
-      run: docker run -t --privileged=false --user=docker --cap-drop=ALL --rm=true -v ${GITHUB_WORKSPACE}:/src:ro deepcode_action:${GITHUB_SHA} > results/output.json
+      run: python deepcode_to_sarif.py output.json
     
-    - name: Show the analysis result
-      run: cat results/output.json
-
-    - uses: github/codeql-action/upload-sarif@v1
-      with:
-        sarif_file: output.sarif
+    - name: Prepare results directory
+      run: ls -la
