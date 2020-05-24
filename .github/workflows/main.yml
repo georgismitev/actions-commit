@@ -26,7 +26,7 @@ jobs:
       run: docker run -t --privileged=false --user=docker --cap-drop=ALL --rm=true -v ${GITHUB_WORKSPACE}:/src:ro deepcode_action:${GITHUB_SHA} > results/output.json
     
     - name: Show the analysis result
-      run: cat results/output.json
+      run: python deepcode_to_sarif.py output.json
 
     - uses: github/codeql-action/upload-sarif@v1
       with:
