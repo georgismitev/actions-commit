@@ -1,0 +1,22 @@
+name: DeepCode analysis
+
+on: [push, pull_request]
+
+jobs:
+  Deepcode-Build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Perform DeepCode analysis
+      uses: ./analysis-action
+      env:
+        DEEPCODE_TOKEN: "97d4a5be514a585463b190dcc8a871dd97f74556a31304401b03a865735e7f0f"
+
+    - name: Upload report
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: output.sarif

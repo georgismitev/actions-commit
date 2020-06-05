@@ -14,8 +14,14 @@ jobs:
     - name: GITHUB_WORKSPACE value
       run: echo ${GITHUB_WORKSPACE}
 
+    - name: GITHUB_SHA value
+      run: echo ${GITHUB_SHA}
+
+    - name: DC_TOKEN value
+      run: echo ${DC_TOKEN}
+
     - name: Prepare results directory
-      run: cd ${GITHUB_WORKSPACE} && mkdir results && ls -l
+      run: cd ${GITHUB_WORKSPACE} && rm -rf results && mkdir results && ls -l
 
     - name: Build and tag DeepCode docker image with cli
       env:
