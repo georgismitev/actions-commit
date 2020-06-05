@@ -12,9 +12,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Perform DeepCode analysis
-      uses: ./analysis-action
+      uses: georgismitev/analysis-action@master
       env:
-        DEEPCODE_TOKEN: "97d4a5be514a585463b190dcc8a871dd97f74556a31304401b03a865735e7f0f"
+        DEEPCODE_TOKEN: ${{ secrets.DEEPCODE_TOKEN }}
 
     - name: Upload report
       uses: github/codeql-action/upload-sarif@v1
