@@ -1,4 +1,4 @@
-name: DeepCode analysis
+name: A DeepCode analysis
 
 on: [push, pull_request]
 
