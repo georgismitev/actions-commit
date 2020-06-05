@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Perform DeepCode analysis
-      uses: georgismitev/analysis-action@master
+      uses: georgismitev/deepcode-code-scanning-analysis@master
       env:
         DEEPCODE_TOKEN: ${{ secrets.DEEPCODE_TOKEN }}
 
