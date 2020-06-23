@@ -1,17 +1,6 @@
 name: A DeepCode analysis
 
-on:
-  # trigger a deepcode analysis on pushes to the master branch
-  push:
-    branches:
-      - master
-  # trigger a deepcode analysis on a pull request against the master branch
-  pull_request:
-    branches:
-      - master
-  # trigger a deepcode analysis every day at 18:00 o'clock
-  schedule:
-    - cron: '0 18 * * *'
+on: push
 
 jobs:
   Deepcode-Build:
@@ -26,8 +15,6 @@ jobs:
       uses: georgismitev/deepcode-code-scanning-analysis@master
       env:
         DEEPCODE_TOKEN: ${{ secrets.DEEPCODE_TOKEN }}
-    
-    - run: cat output.sarif
 
     - name: Upload report
       uses: github/codeql-action/upload-sarif@v1
